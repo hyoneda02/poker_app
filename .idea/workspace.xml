@@ -1,16 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="9f05c096-5463-4d3a-bcfd-e589922a0524" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/home/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/poker_api/api.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/v1/cards.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/v1/root.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/card_judge.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/card_service.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/validators/card_validator.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/cards/judge_cards.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/api/test_api_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/controllers/test_controller_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/services/test_judge_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/services/test_service_spec.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/spec/validators/test_validator_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/poker_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/poker_app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cards_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/home/show.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Ruby File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="hiddenUrls">
+      <set>
+        <option value="https://github.com/hyoneda02/poker_app" />
+      </set>
+    </option>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -28,11 +66,17 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_package_manager_path" value="npm" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/spec/controllers" />
+    </key>
   </component>
   <component name="RunManager" selected="Rails.Development: poker_app">
     <configuration name="Development: poker_app" type="RailsRunConfigurationType" factoryName="Rails">
@@ -152,7 +196,30 @@
       <workItem from="1606996751874" duration="1323000" />
       <workItem from="1606998169308" duration="329000" />
       <workItem from="1606998576451" duration="2232000" />
-      <workItem from="1607045681051" duration="10448000" />
+      <workItem from="1607045681051" duration="18030000" />
+      <workItem from="1607483822016" duration="2414000" />
+      <workItem from="1607486358141" duration="8460000" />
+      <workItem from="1607563576194" duration="7394000" />
+      <workItem from="1607573692687" duration="7361000" />
+      <workItem from="1607784510890" duration="7410000" />
+      <workItem from="1607923415041" duration="15371000" />
+      <workItem from="1607996787238" duration="21577000" />
+      <workItem from="1608115035229" duration="5431000" />
+      <workItem from="1608170526509" duration="17794000" />
+      <workItem from="1608216316220" duration="4483000" />
+      <workItem from="1608252946038" duration="5510000" />
+      <workItem from="1608261685976" duration="11339000" />
+      <workItem from="1608444685580" duration="14363000" />
+      <workItem from="1608517442930" duration="17880000" />
+      <workItem from="1608610521056" duration="9457000" />
+      <workItem from="1608697244192" duration="2698000" />
+      <workItem from="1609667720439" duration="616000" />
+      <workItem from="1609724734069" duration="571000" />
+      <workItem from="1609725426019" duration="50296000" />
+      <workItem from="1609983426382" duration="1362000" />
+      <workItem from="1609987327969" duration="11612000" />
+      <workItem from="1610412894755" duration="14596000" />
+      <workItem from="1610501722164" duration="26666000" />
     </task>
     <servers />
   </component>
@@ -172,6 +239,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/poker_app@Development__poker_app.rcov" NAME="Development: poker_app Coverage Results" MODIFIED="1607049426992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_app" />
+    <SUITE FILE_PATH="coverage/poker_app@Development__poker_app.rcov" NAME="Development: poker_app Coverage Results" MODIFIED="1609734012725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_app" />
   </component>
 </project>

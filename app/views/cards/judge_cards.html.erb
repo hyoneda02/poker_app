@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>result</title>
+</head>
+<body>
+<main>
+<p>判定ページ</p>
+</main>
+
+入力したカード：
+<%= @cards %><br>
+
+
+<% if @error %>
+  <p><%= @error %></p>
+   <% end %>
+
+
+
+役名：
+<% if @result %>
+  <%= @result %><br>
+<% end %>
+
+
+</body>
+</html>

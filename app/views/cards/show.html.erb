@@ -1,0 +1,40 @@
+<html lang="ja">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <title>Check a poker hand</title>
+</head>
+
+<body>
+
+<p>Check a poker hand</p>
+
+<h1>カードを入力せよ！</h1>
+
+<%= form_tag(controller:"cards", action:"judge_cards", target: "_self") do %>
+  <label>
+    <input type="text" name="cards" value=""　onInput="checkForm(this)">
+  </label>
+    <input type="submit" value='送信'>
+<% end %>
+
+入力したカード：
+<%= @cards %><br>
+
+
+<% if @error %>
+  <% @error.each do |error| %>
+    <p><%= error %></p>
+  <% end %>
+<% end %>
+
+
+役名：
+<% if @result %>
+  <%= @result %><br>
+<% end %>
+
+
+
+</body>
+</html>
