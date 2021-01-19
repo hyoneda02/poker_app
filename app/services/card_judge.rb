@@ -17,10 +17,8 @@ class CardJudge
 
     scores = hands.map { |hand| score[hand] }
     #handsの配列の各要素に対してscoreを当てはめた新しい配列scoresを作る
-
     best_card = score.key(scores.max)
     #maxscoreのvalueを持つ役名keyをbest_cardとする
-
     best_list = []
 
     (0...hands.length).each { |i|
@@ -32,7 +30,7 @@ class CardJudge
     }
 
     best_list
-    #best_list = [1]
+    #bestな役名の番号（何番目のhandsか）が返る
 
 
   end

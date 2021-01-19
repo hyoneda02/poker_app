@@ -19,18 +19,13 @@ describe CardValidator do
   describe '#check_validate' do
     let(:cards){"S1S2S3S4S5"}
     it '入力形式不正（半角スペースなし）' do
-      expect(CardValidator.check_validate(cards)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）",
-                                                         "1番目のカード指定文字が不正です(S1S2S3S4S5)",
-                                                         "半角英字大文字のスート(S,H,D,C)と数字(1〜13)の組み合わせでカードを指定してください。"]
+      expect(CardValidator.check_validate(cards)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"]
     end
   end
-
   describe '#check_validate' do
     let(:cards){"S1　S2　S3　S4　S5"}
     it '入力形式不正（全角スペース）' do
-      expect(CardValidator.check_validate(cards)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）",
-                                                         "1番目のカード指定文字が不正です(S1　S2　S3　S4　S5)",
-                                                         "半角英字大文字のスート(S,H,D,C)と数字(1〜13)の組み合わせでカードを指定してください。"]
+      expect(CardValidator.check_validate(cards)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"]
     end
   end
 

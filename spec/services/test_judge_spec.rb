@@ -25,8 +25,15 @@ describe CardJudge do
 
   describe '#judge' do
     let(:hands){["ストレートフラッシュ", "ハイカード", "ストレートフラッシュ"]}
-    it '複数番目がbest判定' do
+    it 'best判定が2つ' do
       expect(CardJudge.judge(hands)).to eq [0,2]
+    end
+  end
+
+  describe '#judge' do
+    let(:hands){["ストレートフラッシュ", "ストレートフラッシュ", "ストレートフラッシュ"]}
+    it 'best判定が3つ' do
+      expect(CardJudge.judge(hands)).to eq [0,1,2]
     end
   end
 

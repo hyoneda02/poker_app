@@ -17,83 +17,93 @@ describe CardsController, type: :controller do
   end
 
   describe 'POST #show' do
-    it '正常なレスポンスが返ってくること' do
-      post :show
-      expect(response).to be_successful
-    end
-    it '200レスポンスが返ってくること' do
-      post :show
-      expect(response).to have_http_status "200"
-    end
-    it 'フォーム画面と判定結果を表示すること' do
-      post :show
-      expect(response).to render_template :show
-    end
-
-    let(:params){{cards: "S1 S2 S3 S4 S5"}}
-      it '正常なリクエストで正常なレスポンスか' do
-        post :show, params: params
+    context 'リクエストなしのとき' do
+      it '正常なレスポンスが返ってくること' do
+       post :show
         expect(response).to be_successful
       end
-      it '200レスポンスが返ってくるか' do
-        post :show
-       expect(response).to have_http_status "200"
-      end
-
-    let(:params){{cards: "S1 S2 S3 S4 S51"}}
-      it '異常なリクエストで正常なレスポンスか' do
-       post :show, params: params
-        expect(response).to be_successful
-      end
-      it '200レスポンスが返ってくるか' do
+      it '200レスポンスが返ってくること' do
         post :show
         expect(response).to have_http_status "200"
       end
+      it 'フォーム画面と判定結果を表示すること' do
+       post :show
+        expect(response).to render_template :show
+      end
+    end
+
+    context '正常なリクエストのとき' do
+      let(:params){{cards: "S1 S2 S3 S4 S5"}}
+       it '正常なリクエストで正常なレスポンスか' do
+          post :show, params: params
+          expect(response).to be_successful
+        end
+       it '200レスポンスが返ってくるか' do
+          post :show
+          expect(response).to have_http_status "200"
+       end
+    end
+
+    context '異常なリクエストのとき' do
+      let(:params){{cards: "S1 S2 S3 S4 S51"}}
+       it '異常なリクエストで正常なレスポンスか' do
+          post :show, params: params
+          expect(response).to be_successful
+        end
+      it '200レスポンスが返ってくるか' do
+          post :show
+          expect(response).to have_http_status "200"
+      end
+    end
   end
+
+ describe 'POST #judge_cards' do
+   before {post :judge_cards, params: params}
+
+    context '正常なリクエストのとき' do
+      let(:params){{cards: "S1 S2 S3 S4 S5"}}
+        it '@cardsに入力したカードの値が入る' do
+          expect(assigns(:cards)).to eq "S1 S2 S3 S4 S5"
+        end
+        it '@resultに判定結果の値が入る' do
+          expect(assigns(:result)).to eq "ストレートフラッシュ"
+        end
+        it '@errorには何の値も入らない' do
+          expect(assigns(:error)).to eq []
+        end
+    end
+
+    context '異常なリクエスト：入力形式不正のとき' do
+      let(:params){{cards: "S1 S2 S3 S4"}}
+        it '@cardsに入力したカードの値が入る' do
+          expect(assigns(:cards)).to eq "S1 S2 S3 S4"
+        end
+        it '@errorに入力制限メッセージが入る' do
+          expect(assigns(:error)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"]
+        end
+    end
+
+    context '異常なリクエスト：入力重複のとき' do
+      let(:params){{cards: "S1 S2 S3 S4 S4"}}
+        it '@cardsに入力したカードの値が入る' do
+          expect(assigns(:cards)).to eq "S1 S2 S3 S4 S4"
+        end
+        it '@errorに重複メッセージが入る' do
+          expect(assigns(:error)).to eq ["カードが重複しています。"]
+        end
+    end
+
+    context '異常なリクエスト：組み合わせ不正のとき' do
+      let(:params){{cards: "S1 S2 S3 S4 S51"}}
+        it '@cardsに入力したカードの値が入る' do
+          expect(assigns(:cards)).to eq "S1 S2 S3 S4 S51"
+        end
+        it '@errorに組み合わせ不正メッセージが入る' do
+          expect(assigns(:error)).to eq ["5番目のカード指定文字が不正です(S51)", "半角英字大文字のスート(S,H,D,C)と数字(1〜13)の組み合わせでカードを指定してください。"]
+        end
+    end
+ end
 end
 
-describe CardsController, type: :controller do
- describe 'POST #judge_cards' do
-   let(:params){{cards: "S1 S2 S3 S4 S5"}}
-      it '正常なリクエストで@cards呼び出しチェック' do
-        post :judge_cards, params: params
-        expect(assigns(:cards)).to eq "S1 S2 S3 S4 S5"
-      end
-      it '正常なリクエストで@result呼び出しチェック' do
-        post :judge_cards, params: params
-        expect(assigns(:result)).to eq "ストレートフラッシュ"
-      end
-      it '正常なリクエストで@error呼び出しチェック' do
-        post :judge_cards, params: params
-        expect(assigns(:error)).to eq []
-      end
-
- end
-
- describe 'POST #judge_cards' do
-   let(:params){{cards: "S1 S2 S3 S4"}}
-      it '異常リクエスト@error入力制限メッセージ' do
-         post :judge_cards, params: params
-         expect(assigns(:error)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"]
-      end
- end
-
- describe 'POST #judge_cards' do
-   let(:params){{cards: "S1 S2 S3 S4 S4"}}
-   it '異常リクエスト@error重複メッセージ' do
-     post :judge_cards, params: params
-     expect(assigns(:error)).to eq ["カードが重複しています。"]
-   end
- end
-
- describe 'POST #judge_cards' do
-   let(:params){{cards: "S1 S2 S3 S4 S51"}}
-   it '異常リクエスト@error組み合わせ不正メッセージ' do
-     post :judge_cards, params: params
-     expect(assigns(:error)).to eq ["5番目のカード指定文字が不正です(S51)", "半角英字大文字のスート(S,H,D,C)と数字(1〜13)の組み合わせでカードを指定してください。"]
-   end
- end
-
-end
 
 

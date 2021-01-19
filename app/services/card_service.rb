@@ -3,79 +3,108 @@ class CardService
 
   def self.result(cards)
 
-    result = ""
-
     card_array = cards.split(" ")
     #スートと数字の組み合わせを一つずつ配列に入れる
 
+      result = ""
       suit_array = []
       num_array = []
       uniq_array = []
 
     (0...card_array.length).each { |i|
+      #0から5回繰り返す
       suit_array.push(card_array[i][0])
-      #suite_array = ["S", "S", "S", "S", "S"]
+      #スートだけの配列を作る
       num_array.push(card_array[i][1..2].to_i)
-      #num_array = [1, 2, 3, 4, 5]
+      #数字だけの配列を作る
     }
+    #.map使えそうだけどどっちの方が良いか？
 
-    firstSuit = suit_array[0]
-    firstSuit_array = [firstSuit, firstSuit, firstSuit, firstSuit, firstSuit]
-    firstNumber = num_array.sort[0]
+      first_suit = suit_array[0]
+      first_suit_array = [first_suit, first_suit, first_suit, first_suit, first_suit]
+      #0番目のスートを5つ配列に入れる
 
-      new_num_array = [firstNumber]
-      #new_num_array = [1]
+      first_number = num_array.sort[0]
+      step_num_array = [first_number]
+      #一番最小さい数字を配列に入れておく
+      (0..card_array.length-2).each { |i|
+        #0から4回繰り返す
+        first_number += 1
+        step_num_array.push(first_number)
+        #一番小さい数字から一つずつ増える数字を配列に入れる
+      }
 
-      (0..card_array.length-2).each do |i|
-        firstNumber += 1
-        new_num_array.push(firstNumber)
-        #new_num_array = [1, 2, 3, 4, 5]
+
+    if first_suit_array == suit_array
+      #スートが全て同じとき
+      if step_num_array == num_array.sort
+        #数字が連続していたとき
+        result = 'ストレートフラッシュ'
+        return result
+      else
+        #数字がバラバラなとき
+        result = 'フラッシュ'
+        return result
       end
+    end
 
-    (1...card_array.length).each { |i|
-      if firstSuit_array != suit_array
-        #最初のスートを繰り返した配列とリクエストそのままのスートの配列が等しいとき
-        if new_num_array == num_array.sort
+      if first_suit_array != suit_array
+        #スートが全て同じではないとき
+        if step_num_array == num_array.sort
           #数字が連続していたとき
           result = 'ストレート'
-        elsif num_array.uniq.size == 2
+          return result
+        end
+      end
+
+      if first_suit_array != suit_array
+        #スートが全て同じではないとき
+        if num_array.uniq.size == 2
+          #重複を消して、数字が2パターンであるとき
           if num_array.count(num_array[0]) == 2 || num_array.count(num_array[0]) == 3
+            #2枚と3枚の分かれ方をしたとき
             result = 'フルハウス'
-            #　==2or3にする方法募集中
+            return result
           else
+            #1枚と4枚の分かれ方をしたとき
             result = 'フォー・オブ・ア・カインド'
+            return result
           end
-        elsif num_array.uniq.size == 3
-          (0..num_array.length - 1).each { |i|
+        end
+      end
+
+      if first_suit_array != suit_array
+        #スートが全て同じではないとき
+        if num_array.uniq.size == 3
+          #重複を消して、数字が3パターンであるとき
+          (0..num_array.length-1).each { |i|
             uniq_array.push(num_array.count(num_array.uniq[i]))
           }
           if uniq_array.include?(3)
+            #3枚、1枚、1枚の分かれ方をしたとき
             result = 'スリー・オブ・ア・カインド'
+            return result
           else
+            #2枚、2枚、1枚の分かれ方をしたとき
             result = 'ツーペア'
+            return result
           end
-        elsif num_array.uniq.size == 4
+        end
+      end
+
+      if first_suit_array != suit_array
+        #スートが全て同じではないとき
+        if num_array.uniq.size == 4
+          #重複を消して、数字が4パターンであるとき
           result = 'ワンペア'
-        else
+          return result
+        elsif num_array.uniq.size == 5
+          #重複がないとき
           result = 'ハイカード'
+          return result
         end
       end
-
-      if firstSuit_array == suit_array
-        #最初のスートと他のスートが同じマークのとき
-        if new_num_array == num_array.sort
-          #数字が連続していたとき
-          result = 'ストレートフラッシュ'
-        else
-          #数字がバラバラなとき
-          result = 'フラッシュ'
-        end
-      end
-    }
-      result
-
   end
-
 end
 
 

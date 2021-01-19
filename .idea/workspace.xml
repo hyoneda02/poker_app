@@ -5,27 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f05c096-5463-4d3a-bcfd-e589922a0524" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/api/poker_api/api.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/v1/cards.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/v1/root.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/card_judge.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/card_service.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/validators/card_validator.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/cards/judge_cards.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/api/test_api_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/controllers/test_controller_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/services/test_judge_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/services/test_service_spec.rb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/spec/validators/test_validator_spec.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/poker_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/poker_app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Gemfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Gemfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/home.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/home_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cards_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/home/show.html.erb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/card_judge.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/card_judge.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/card_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/card_service.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/validators/card_validator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/validators/card_validator.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/cards/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/api/test_api_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/api/test_api_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/controllers/test_controller_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/controllers/test_controller_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/services/test_judge_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/services/test_judge_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/validators/test_validator_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/validators/test_validator_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,7 +208,7 @@
       <workItem from="1609983426382" duration="1362000" />
       <workItem from="1609987327969" duration="11612000" />
       <workItem from="1610412894755" duration="14596000" />
-      <workItem from="1610501722164" duration="26666000" />
+      <workItem from="1610501722164" duration="56982000" />
     </task>
     <servers />
   </component>
@@ -239,6 +228,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/poker_app@Development__poker_app.rcov" NAME="Development: poker_app Coverage Results" MODIFIED="1609734012725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_app" />
+    <SUITE FILE_PATH="coverage/poker_app@Development__poker_app.rcov" NAME="Development: poker_app Coverage Results" MODIFIED="1610949022160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_app" />
   </component>
 </project>
