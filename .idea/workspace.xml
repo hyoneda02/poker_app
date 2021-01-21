@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f05c096-5463-4d3a-bcfd-e589922a0524" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/views/home/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/poker_app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/poker_app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +173,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/poker_app@Development__poker_app.rcov" NAME="Development: poker_app Coverage Results" MODIFIED="1607049426992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_app" />
+    <SUITE FILE_PATH="coverage/poker_app@Development__poker_app.rcov" NAME="Development: poker_app Coverage Results" MODIFIED="1610949022160" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="poker_app" />
   </component>
 </project>
