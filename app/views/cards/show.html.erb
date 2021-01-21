@@ -16,23 +16,23 @@
     <input type="text" name="cards" value=""　onInput="checkForm(this)">
   </label>
     <input type="submit" value='送信'>
+<% end %><p></p>
+
+
+<% if @cards %>
+  <%= "入力したカード：" %><%= @cards %>
 <% end %>
 
-
-入力したカード：
-<%= @cards %><br>
-
-
-<% if @error %>
-  <% @error.each do |error| %>
-    <p><%= error %></p>
+<p>
+  <% if @error %>
+    <% @error.each do |error| %>
+    <p> <%= error %></p>
+    <% end %>
   <% end %>
-<% end %>
+  </p>
 
-
-役名：
 <% if @result %>
-  <%= @result %><br>
+  <%= "役名：" %><%=@result %>
 <% end %>
 
 

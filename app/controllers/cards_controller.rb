@@ -1,8 +1,5 @@
-# coding: utf-8
 
 class CardsController < ApplicationController
-
-  attr_reader :card, :cards, :error
 
   def show
 

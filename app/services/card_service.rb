@@ -4,56 +4,41 @@ class CardService
   def self.result(cards)
 
     card_array = cards.split(" ")
-    #スートと数字の組み合わせを一つずつ配列に入れる
+    #半角スペースで区切って、カードを配列に入れる
+    suit_array = card_array.map {|card| card[0]}
+    #スートだけの配列を作る
+    num_array = card_array.map {|card| card[1..2].to_i}
+    #数字だけの配列を作る
 
-      result = ""
-      suit_array = []
-      num_array = []
-      uniq_array = []
+    first_suit_array = [suit_array[0]]*5
+    #0番目のスートを5つ配列に入れる：フラッシュの準備
 
-    (0...card_array.length).each { |i|
-      #0から5回繰り返す
-      suit_array.push(card_array[i][0])
-      #スートだけの配列を作る
-      num_array.push(card_array[i][1..2].to_i)
-      #数字だけの配列を作る
+    first_number = num_array.sort[0]
+    step_num_array = [first_number]
+    (1..4).each { |first_number|
+      first_number += 1
+      step_num_array.push(first_number)
+      #1番小さい数字から1ずつ増える数字を4回配列に入れる：ストレートの準備
     }
-    #.map使えそうだけどどっちの方が良いか？
 
-      first_suit = suit_array[0]
-      first_suit_array = [first_suit, first_suit, first_suit, first_suit, first_suit]
-      #0番目のスートを5つ配列に入れる
+    #以下、役判定の条件文
 
-      first_number = num_array.sort[0]
-      step_num_array = [first_number]
-      #一番最小さい数字を配列に入れておく
-      (0..card_array.length-2).each { |i|
-        #0から4回繰り返す
-        first_number += 1
-        step_num_array.push(first_number)
-        #一番小さい数字から一つずつ増える数字を配列に入れる
-      }
-
-
-    if first_suit_array == suit_array
-      #スートが全て同じとき
-      if step_num_array == num_array.sort
-        #数字が連続していたとき
-        result = 'ストレートフラッシュ'
-        return result
-      else
-        #数字がバラバラなとき
-        result = 'フラッシュ'
-        return result
+      if first_suit_array == suit_array
+        #スートが全て同じとき
+        if step_num_array||[1,10,11,12,13]||[1,2,11,12,13]||[1,2,3,11,12,]||[1,2,3,4,13] == num_array.sort
+          #数字が連続していたとき
+          return 'ストレートフラッシュ'
+        else
+          #数字がバラバラなとき
+          return 'フラッシュ'
+        end
       end
-    end
 
       if first_suit_array != suit_array
         #スートが全て同じではないとき
-        if step_num_array == num_array.sort
+        if step_num_array ||[1,10,11,12,13]||[1,2,11,12,13]||[1,2,3,11,12,]||[1,2,3,4,13] == num_array.sort
           #数字が連続していたとき
-          result = 'ストレート'
-          return result
+          return 'ストレート'
         end
       end
 
@@ -61,14 +46,12 @@ class CardService
         #スートが全て同じではないとき
         if num_array.uniq.size == 2
           #重複を消して、数字が2パターンであるとき
-          if num_array.count(num_array[0]) == 2 || num_array.count(num_array[0]) == 3
+          if num_array.count(num_array[0]) == 2 || 3
             #2枚と3枚の分かれ方をしたとき
-            result = 'フルハウス'
-            return result
+            return 'フルハウス'
           else
             #1枚と4枚の分かれ方をしたとき
-            result = 'フォー・オブ・ア・カインド'
-            return result
+            return 'フォー・オブ・ア・カインド'
           end
         end
       end
@@ -77,17 +60,16 @@ class CardService
         #スートが全て同じではないとき
         if num_array.uniq.size == 3
           #重複を消して、数字が3パターンであるとき
+          uniq_array = []
           (0..num_array.length-1).each { |i|
             uniq_array.push(num_array.count(num_array.uniq[i]))
           }
           if uniq_array.include?(3)
             #3枚、1枚、1枚の分かれ方をしたとき
-            result = 'スリー・オブ・ア・カインド'
-            return result
+            return 'スリー・オブ・ア・カインド'
           else
             #2枚、2枚、1枚の分かれ方をしたとき
-            result = 'ツーペア'
-            return result
+            return 'ツーペア'
           end
         end
       end
@@ -96,12 +78,10 @@ class CardService
         #スートが全て同じではないとき
         if num_array.uniq.size == 4
           #重複を消して、数字が4パターンであるとき
-          result = 'ワンペア'
-          return result
+          return 'ワンペア'
         elsif num_array.uniq.size == 5
           #重複がないとき
-          result = 'ハイカード'
-          return result
+          return 'ハイカード'
         end
       end
   end

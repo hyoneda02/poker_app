@@ -3,15 +3,19 @@ module PokerApi
 
   class API < Grape::API
 
-    rescue_from :all do |e|
-      rack_response({message: "リクエストの構文が不正です", status: "400 Bad Request"}.to_json, 400)
-    end
-
-
     version 'v1', using: :path
     format :json
 
     resource :poker do
+
+      params do
+        requires :cards, message: "リクエストの構文が不正です"
+      end
+
+      # rescue_from :all do |e|
+      #   rack_response({message: "リクエストの構文が不正です", status: "400 Bad Request"}.to_json, 400)
+      # end
+
       desc 'Judge_logic'
       post do
         response = {}
