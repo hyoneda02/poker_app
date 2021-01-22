@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe CardJudge do
-
   describe '#judge' do
     let(:hands){["ストレートフラッシュ", "フルハウス", "ハイカード"]}
     it '0番目がbest判定' do
@@ -36,5 +35,4 @@ describe CardJudge do
       expect(CardJudge.judge(hands)).to eq [0,1,2]
     end
   end
-
 end

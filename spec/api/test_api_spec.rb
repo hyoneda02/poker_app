@@ -1,18 +1,19 @@
 require 'rails_helper'
 
-describe PokerApi, type: :request do
+describe V1::PokerAPI, type: :request do
   describe 'api' do
 
     context '正常なリクエストのとき' do
      let(:params){{cards: ["H1 H13 H12 H11 H10", "H9 C9 S9 H2 C2", "C13 D12 C11 H8 H7"]}}
       it '正常なレスポンスか' do
-        expect(response).to  be_successful
+        post '/v1/poker', params: params
+        expect(response).to be_successful
       end
       it '201レスポンスが返ってくるか' do
         post '/v1/poker', params: params
         expect(response).to have_http_status "201"
       end
-     #errormessageは何も入ってないのか？
+     # errormessageは何も入ってないかのテストも余力あればやる
     end
   end
 
@@ -86,16 +87,16 @@ describe PokerApi, type: :request do
   describe '#judge' do
     let(:params){{hands: ["ストレートフラッシュ", "フルハウス", "ハイカード"]}}
     it 'best判定が正常になされること' do
-         expect(CardJudge.judge(hands)).to eq [0]
+         expect(CardJudge.judge(params)).to eq [0]
        end
   end
-
 
   describe 'api' do
     context '異常なリクエストのとき' do
       let(:params){{cards: ["H51 H13 H12 H11 H10", "H9 C9 S9 H2 C2", "C13 D12 C11 H8 H7"]}}
         it '正常なレスポンスか' do
-          expect(response).to  be_successful
+          post '/v1/poker', params: params
+          expect(response).to be_successful
         end
         it '201レスポンスが返ってくること' do
           post '/v1/poker', params: params

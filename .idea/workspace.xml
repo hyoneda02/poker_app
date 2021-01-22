@@ -6,12 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="9f05c096-5463-4d3a-bcfd-e589922a0524" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/poker_api/api.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/poker_api/api.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/poker_api/api.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/poker_api.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/v1/cards.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/cards_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cards_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/card_judge.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/card_judge.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/card_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/card_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/validators/card_validator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/validators/card_validator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/cards/judge_cards.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cards/judge_cards.html.erb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views/cards/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/api/test_api_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/api/test_api_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/services/test_judge_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/services/test_judge_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/services/test_service_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/services/test_service_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/validators/test_validator_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/validators/test_validator_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +67,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/api/v1" />
       <recent name="$PROJECT_DIR$/spec/controllers" />
     </key>
   </component>

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe CardValidator do
-
   describe '#check_validate' do
     let(:cards){"S1 S2 S3 S4"}
     it '入力枚数不正（少）' do
@@ -22,6 +21,7 @@ describe CardValidator do
       expect(CardValidator.check_validate(cards)).to eq ["5つのカード指定文字を半角スペース区切りで入力してください。（例：S1 H3 D9 C13 S11）"]
     end
   end
+
   describe '#check_validate' do
     let(:cards){"S1　S2　S3　S4　S5"}
     it '入力形式不正（全角スペース）' do
@@ -60,7 +60,6 @@ describe CardValidator do
     end
   end
 
-
   describe '#check_validate' do
     let(:cards){"S51 S2 S3 S4 S5"}
     it '入力内容不正（number指定範囲外）' do
@@ -76,5 +75,4 @@ describe CardValidator do
                                                          "半角英字大文字のスート(S,H,D,C)と数字(1〜13)の組み合わせでカードを指定してください。"]
     end
   end
-
 end

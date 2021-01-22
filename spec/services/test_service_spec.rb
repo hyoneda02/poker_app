@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe CardService do
-
   describe 'POST #judge_cards' do
     let(:cards){"C7 C6 C5 C4 C3"}
     it 'ストレートフラッシュ' do
@@ -64,5 +63,4 @@ describe CardService do
       expect(CardService.result(cards)).to eq "ハイカード"
     end
   end
-
 end
