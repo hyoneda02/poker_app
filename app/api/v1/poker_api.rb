@@ -7,7 +7,7 @@ module V1
         requires :cards, message: "のパラメーターが不正です"
       end
 
-      desc '役判定ロジック'
+      desc "役判定ロジック"
       post do
         response = {}
         result = []
@@ -18,23 +18,30 @@ module V1
         error_list = []
 
         params[:cards].each do |card|
-          if CardValidator.check_validate(card).empty?
+          validation = CardValidator.check_validate(card)
+
+          if validation.empty?
             # もしバリデクリアしてたら役名判定ロジックへ進む
             normal_card_list << card
+            # ①cardを入れる
             hand_list << CardService.result(card)
+            # ②役名判定結果を入れる
           else
-            error_msg = ""
             error_card_list << card
-            CardValidator.check_validate(card).each { | error| error_msg += error }
+            # ①cardを入れる
+            error_msg = ''
+            validation.each { |error| error_msg += error }
             error_list << error_msg
+            # ②エラーメッセージを入れる
           end
         end
 
-        best_list = CardJudge.judge(hand_list)
+        best_list = CardService.best_card_judge(hand_list)
+        # ベスト判定をする
 
-        normal_card_list.each_with_index do |cards, i|
+        normal_card_list.each_with_index do |card, i|
           result_hash = {
-            'card' => cards,
+            'card' => card,
             'hand' => hand_list[i],
             'best' => best_list.include?(i)
           }
@@ -46,9 +53,9 @@ module V1
            end
         end
 
-        error_card_list.each_with_index do |cards, i|
+        error_card_list.each_with_index do |card, i|
           error_hash = {
-            'card' => cards,
+            'card' => card,
             'mag' => error_list[i]
           }
           error.push(error_hash)

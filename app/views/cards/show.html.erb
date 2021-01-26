@@ -8,7 +8,7 @@
   <body>
     <p>Check a poker hand</p>
     <h1>カードを入力せよ！</h1>
-    <%= form_tag(controller:"cards", action:"judge_cards", target: "_self") do %>
+    <%= form_tag(controller: "cards", action: "judge_cards", target: "_self") do %>
       <label>
         <input type="text" name="cards" value=""　onInput="checkForm(this)">
       </label>

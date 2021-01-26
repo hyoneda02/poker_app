@@ -5,13 +5,7 @@ describe CardsController, type: :controller do
     it '正常なレスポンスが返ってくること' do
       get :show
       expect(response).to be_successful
-    end
-    it '200レスポンスが返ってくること' do
-      get :show
       expect(response).to have_http_status "200"
-    end
-    it 'フォーム画面を表示すること' do
-      get :show
       expect(response).to render_template :show
     end
   end
@@ -33,7 +27,7 @@ describe CardsController, type: :controller do
     end
 
     context '正常なリクエストのとき' do
-      let(:params){{cards: "S1 S2 S3 S4 S5"}}
+      let(:params) { { cards: "S1 S2 S3 S4 S5" } }
        it '正常なリクエストで正常なレスポンスか' do
           post :show, params: params
           expect(response).to be_successful
@@ -45,7 +39,7 @@ describe CardsController, type: :controller do
     end
 
     context '異常なリクエストのとき' do
-      let(:params){{cards: "S1 S2 S3 S4 S51"}}
+      let(:params) { { cards: "S1 S2 S3 S4 S51" } }
        it '異常なリクエストで正常なレスポンスか' do
           post :show, params: params
           expect(response).to be_successful
@@ -58,10 +52,10 @@ describe CardsController, type: :controller do
   end
 
  describe 'POST #judge_cards' do
-   before {post :judge_cards, params: params}
+   before { post :judge_cards, params: params }
 
     context '正常なリクエストのとき' do
-      let(:params){{cards: "S1 S2 S3 S4 S5"}}
+      let(:params) { { cards: "S1 S2 S3 S4 S5" } }
         it '@cardsに入力したカードの値が入る' do
           expect(assigns(:cards)).to eq "S1 S2 S3 S4 S5"
         end
@@ -74,7 +68,7 @@ describe CardsController, type: :controller do
     end
 
     context '異常なリクエスト：入力形式不正のとき' do
-      let(:params){{cards: "S1 S2 S3 S4"}}
+      let(:params) { { cards: "S1 S2 S3 S4" } }
         it '@cardsに入力したカードの値が入る' do
           expect(assigns(:cards)).to eq "S1 S2 S3 S4"
         end
@@ -84,7 +78,7 @@ describe CardsController, type: :controller do
     end
 
     context '異常なリクエスト：入力重複のとき' do
-      let(:params){{cards: "S1 S2 S3 S4 S4"}}
+      let(:params) { { cards: "S1 S2 S3 S4 S4" } }
         it '@cardsに入力したカードの値が入る' do
           expect(assigns(:cards)).to eq "S1 S2 S3 S4 S4"
         end
@@ -94,7 +88,7 @@ describe CardsController, type: :controller do
     end
 
     context '異常なリクエスト：組み合わせ不正のとき' do
-      let(:params){{cards: "S1 S2 S3 S4 S51"}}
+      let(:params) { { cards: "S1 S2 S3 S4 S51" } }
         it '@cardsに入力したカードの値が入る' do
           expect(assigns(:cards)).to eq "S1 S2 S3 S4 S51"
         end
@@ -104,6 +98,3 @@ describe CardsController, type: :controller do
     end
  end
 end
-
-
-

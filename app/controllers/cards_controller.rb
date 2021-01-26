@@ -1,4 +1,3 @@
-
 class CardsController < ApplicationController
 
   def show; end
@@ -6,13 +5,8 @@ class CardsController < ApplicationController
   def judge_cards
     @cards = params[:cards]
     @error = CardValidator.check_validate(params[:cards])
-
-    if @error.blank?
-      @result = CardService.result(params[:cards])
-    end
+    @result = CardService.result(params[:cards])  if @error.blank?
 
     render 'cards/show'
   end
 end
-
-
