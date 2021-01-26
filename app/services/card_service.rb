@@ -1,12 +1,13 @@
 
 class CardService
-  # 以下、役ごとに重複する数字を消したときのパターン数を定義する
+  # 以下、役ごとのuniq_sizeを定義する
   FULL_HOUSE_FOUR_OF_A_KIND_SIZE = 2
   THREE_OF_A_KIND_TWO_PAIR_SIZE = 3
   ONE_PAIR_SIZE = 4
   HIGH_CARD_SIZE = 5
-  # 以下、フルハウスの数字の分かれ方を定義する
-  FULL_HOUSE_PATTERN = [2, 3].freeze
+  # 以下、フルハウスとスリーオブアカインドだけuniq_countを定義する
+  FULL_HOUSE_PATTERN = 2
+  THREE_OF_A_KIND_PATTERN = 3
 
   MIN_NUM = 1
   MAX_NUM = 13
@@ -19,39 +20,31 @@ class CardService
     # スートだけの配列を作る
     num_array = card_array.map { |card| card[1..2].to_i }
     # 数字だけの配列を作る
-    sorted_num_array = num_array.sort
-    # 小さい順に並べる
-    uniq_size = num_array.uniq.size
-    # 重複がないときの数字のパターン数
 
-
+    # 以下、スートを比較するため、0番目のスートを5回繰り返した配列を変数に定義
     first_suit_array = [suit_array[0]] * card_array.length
-    # 0番目のスートを5つ配列に入れる：フラッシュの処理準備
 
-    # 以下、ストレートの処理準備
+    # 以下、数字の連続を比較するため、0番目の数字から+1する配列を変数に定義
+    sorted_num_array = num_array.sort
     first_number = num_array.min
     step_num_array = [first_number]
     (1..card_array.length - 1).each { |_number| step_num_array.push(first_number += 1) }
-    # 1番小さい数字から1ずつ増える数字を4回配列に入れる
 
-    # 以下、[1,10,11,12,13]もストレートになるようにする処理準備
-    straight_exception_array = []
-    MAX_NUM.downto(MAX_NUM - 3) { |number| straight_exception_array.unshift(number) }
-    straight_exception_array.unshift(MIN_NUM)
+    # 以下、ストレートの例外（[1,10,11,12,13]）を変数に定義
+    straight_exception_array = [MIN_NUM]
+    (num_array.length - 2).downto(0) { |number| straight_exception_array.push(MAX_NUM - number) }
 
-    #straight_exception_array2 = []
-    #(num_array.length - 1).downto(1) { |number| straight_exception_array2.push(MAX_NUM - number) }
-    #print straight_exception_array2
+    # 以下、uniq_sizeを変数に定義
+    uniq_size = num_array.uniq.size
 
-    # 以下、スリー・オブ・ア・カインドの準備
+    # 以下、uniq_countした配列を変数に定義
     uniq_count_array = []
     (0..num_array.length - 1).each_with_index do |_uniq_number ,i|
       uniq_count_array.push(num_array.count(num_array.uniq[i]))
-      # 重複されている数だけの配列を作る
+      # 何回重複しているかの数を入れた配列を作る
     end
 
     # 以下、役判定の条件文
-
     if first_suit_array == suit_array
       # スートが全て同じとき
       if step_num_array == sorted_num_array || straight_exception_array == sorted_num_array
@@ -66,27 +59,24 @@ class CardService
         # 数字が連続していたとき
         return 'ストレート'
       end
-
       if uniq_size == FULL_HOUSE_FOUR_OF_A_KIND_SIZE
         # 重複を消して、数字が2パターンであるとき
-        return 'フルハウス' if FULL_HOUSE_PATTERN.include?(num_array.count(num_array[0]))
+        return 'フルハウス' if uniq_count_array.include?(FULL_HOUSE_PATTERN)
         # 2枚と3枚の分かれ方をしたとき
         return 'フォー・オブ・ア・カインド'
         # 1枚と4枚の分かれ方をしたとき
       end
-
       if uniq_size == THREE_OF_A_KIND_TWO_PAIR_SIZE
         # 重複を消して、数字が3パターンであるとき
-        return 'スリー・オブ・ア・カインド' if uniq_count_array.include?(3)
+        return 'スリー・オブ・ア・カインド' if uniq_count_array.include?(THREE_OF_A_KIND_PATTERN)
         # 3枚、1枚、1枚の分かれ方をしたとき
         return 'ツーペア'
         # 2枚、2枚、1枚の分かれ方をしたとき
       end
-
-      return 'ワンペア' if uniq_size == ONE_PAIR_SIZE
-      # 重複を消して、数字が4パターンであるとき
-      'ハイカード' if uniq_size == HIGH_CARD_SIZE
-      # 重複を消しても数字が5パターンであるとき
+        return 'ワンペア' if uniq_size == ONE_PAIR_SIZE
+        # 重複を消して、数字が4パターンであるとき
+        'ハイカード' if uniq_size == HIGH_CARD_SIZE
+        # 重複を消しても数字が5パターンであるとき
     end
   end
 
@@ -108,15 +98,13 @@ class CardService
     }
 
     scores = hands.map { |hand| score[hand] }
-    # handsの配列の各要素に対してscoreを当てはめた新しい配列scoresを作る
+    # 入ってきたhandにそれぞれスコアリングをする
     best_card = score.key(scores.max)
-    # maxscoreのvalueを持つ役名keyをbest_cardとする
+    # maxを叩き出したhandをbest_cardとする
     best_list = []
-
     hands.each_with_index { |hand, i| best_list << i if hand == best_card }
     # 役名同士を照らし合わせて何番目のhandがbestかを判定し、配列に入れる
 
     best_list
-
   end
 end
