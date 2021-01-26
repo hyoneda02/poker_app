@@ -6,12 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9f05c096-5463-4d3a-bcfd-e589922a0524" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/poker_api/api.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/poker_api/api.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/v1/poker_api.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/poker_api.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/controllers/cards_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cards_controller.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/card_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/card_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/validators/card_validator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/validators/card_validator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/cards/judge_cards.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cards/judge_cards.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/cards/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/api/poker_api_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/api/poker_api_spec.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spec/services/card_service_spec.rb" beforeDir="false" afterPath="$PROJECT_DIR$/spec/services/card_service_spec.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +28,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GithubPullRequestsUISettings">
     <option name="hiddenUrls">
@@ -52,6 +60,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Ruby.ViewRefParam.DefaultExtension" value="html.erb" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -61,6 +70,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/api/v1" />
       <recent name="$PROJECT_DIR$/spec/controllers" />
     </key>
   </component>
@@ -208,6 +218,8 @@
       <workItem from="1610501722164" duration="68507000" />
       <workItem from="1611110625714" duration="8592000" />
       <workItem from="1611128570805" duration="6099000" />
+      <workItem from="1611538951934" duration="6364000" />
+      <workItem from="1611551177489" duration="21601000" />
     </task>
     <servers />
   </component>

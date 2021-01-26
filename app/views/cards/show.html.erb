@@ -1,41 +1,35 @@
 <html lang="ja">
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-  <title>Check a poker hand</title>
-</head>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <title>Check a poker hand</title>
+  </head>
 
-<body>
-
-<p>Check a poker hand</p>
-
-<h1>カードを入力せよ！</h1>
-
-<%= form_tag(controller:"cards", action:"judge_cards", target: "_self") do %>
-  <label>
-    <input type="text" name="cards" value=""　onInput="checkForm(this)">
-  </label>
-    <input type="submit" value='送信'>
-<% end %><p></p>
-
-
-<% if @cards %>
-  <%= "入力したカード：" %><%= @cards %>
-<% end %>
-
-<p>
-  <% if @error %>
-    <% @error.each do |error| %>
-    <p> <%= error %></p>
+  <body>
+    <p>Check a poker hand</p>
+    <h1>カードを入力せよ！</h1>
+    <%= form_tag(controller: "cards", action: "judge_cards", target: "_self") do %>
+      <label>
+        <input type="text" name="cards" value=""　onInput="checkForm(this)">
+      </label>
+        <input type="submit" value='送信'>
     <% end %>
-  <% end %>
-  </p>
+    <br>
 
-<% if @result %>
-  <%= "役名：" %><%=@result %>
-<% end %>
+    <% if @cards.present? %>
+      <%= "入力したカード：" %><%= @cards %>
+    <% end %>
 
+    <p>
+      <% if @error %>
+        <% @error.each do |error| %>
+        <p> <%= error %></p>
+        <% end %>
+      <% end %>
+    </p>
 
-
-</body>
+    <% if @result %>
+      <%= "役名：" %><%=@result %>
+    <% end %>
+  </body>
 </html>
