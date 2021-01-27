@@ -29,9 +29,7 @@ module V1
           else
             error_card_list << card
             # ①cardを入れる
-            error_msg = ''
-            card_valid.each { |error| error_msg += error }
-            error_list << error_msg
+            error_list << card_valid
             # ②エラーメッセージを入れる
           end
         end
@@ -57,7 +55,7 @@ module V1
         error_card_list.each_with_index do |card, i|
           error_hash = {
             'card' => card,
-            'mag' => error_list[i]
+            'msg' => error_list[i]
           }
           error.push(error_hash)
         end

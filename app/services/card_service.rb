@@ -1,10 +1,21 @@
-
 class CardService
+  # 以下、役名を定数化する
+  STRAIGHT_FLUSH = 'ストレートフラッシュ'
+  FOUR_OF_A_KIND = 'フォー・オブ・ア・カインド'
+  FULL_HOUSE = 'フルハウス'
+  FLUSH = 'フラッシュ'
+  STRAIGHT = 'ストレート'
+  THREE_OF_A_KIND = 'スリー・オブ・ア・カインド'
+  TWO_PAIR = 'ツーペア'
+  ONE_PAIR = 'ワンペア'
+  HIGH_CARD = 'ハイカード'
+
   # 以下、役ごとのuniq_sizeを定義する
   FULL_HOUSE_FOUR_OF_A_KIND_SIZE = 2
   THREE_OF_A_KIND_TWO_PAIR_SIZE = 3
   ONE_PAIR_SIZE = 4
   HIGH_CARD_SIZE = 5
+
   # 以下、フルハウスとスリーオブアカインドだけuniq_countを定義する
   FULL_HOUSE_PATTERN = 2
   THREE_OF_A_KIND_PATTERN = 3
@@ -49,33 +60,33 @@ class CardService
       # スートが全て同じとき
       if step_num_array == sorted_num_array || straight_exception_array == sorted_num_array
         # 数字が連続していたとき
-        return 'ストレートフラッシュ'
+        return STRAIGHT_FLUSH
       end
         # 数字がバラバラなとき
-        return 'フラッシュ'
+        return FLUSH
     else
       # スートが全て同じではないとき
       if step_num_array == sorted_num_array || straight_exception_array == sorted_num_array
         # 数字が連続していたとき
-        return 'ストレート'
+        return STRAIGHT
       end
       if uniq_size == FULL_HOUSE_FOUR_OF_A_KIND_SIZE
         # 重複を消して、数字が2パターンであるとき
-        return 'フルハウス' if uniq_count_array.include?(FULL_HOUSE_PATTERN)
+        return FULL_HOUSE if uniq_count_array.include?(FULL_HOUSE_PATTERN)
         # 2枚と3枚の分かれ方をしたとき
-        return 'フォー・オブ・ア・カインド'
+        return FOUR_OF_A_KIND
         # 1枚と4枚の分かれ方をしたとき
       end
       if uniq_size == THREE_OF_A_KIND_TWO_PAIR_SIZE
         # 重複を消して、数字が3パターンであるとき
-        return 'スリー・オブ・ア・カインド' if uniq_count_array.include?(THREE_OF_A_KIND_PATTERN)
+        return THREE_OF_A_KIND if uniq_count_array.include?(THREE_OF_A_KIND_PATTERN)
         # 3枚、1枚、1枚の分かれ方をしたとき
-        return 'ツーペア'
+        return TWO_PAIR
         # 2枚、2枚、1枚の分かれ方をしたとき
       end
-        return 'ワンペア' if uniq_size == ONE_PAIR_SIZE
+        return ONE_PAIR if uniq_size == ONE_PAIR_SIZE
         # 重複を消して、数字が4パターンであるとき
-        'ハイカード' if uniq_size == HIGH_CARD_SIZE
+        HIGH_CARD if uniq_size == HIGH_CARD_SIZE
         # 重複を消しても数字が5パターンであるとき
     end
   end
@@ -86,15 +97,15 @@ class CardService
   def self.best_card_judge(hands)
 
     score = {
-      'ストレートフラッシュ' => 9,
-      'フォー・オブ・ア・カインド' => 8,
-      'フルハウス' => 7,
-      'フラッシュ' => 6,
-      'ストレート' => 5,
-      'スリー・オブ・ア・カインド' => 4,
-      'ツーペア' => 3,
-      'ワンペア' => 2,
-      'ハイカード' => 1
+      STRAIGHT_FLUSH => 9,
+      FOUR_OF_A_KIND => 8,
+      FULL_HOUSE => 7,
+      FLUSH => 6,
+      STRAIGHT => 5,
+      THREE_OF_A_KIND => 4,
+      TWO_PAIR => 3,
+      ONE_PAIR => 2,
+      HIGH_CARD => 1
     }
 
     scores = hands.map { |hand| score[hand] }
