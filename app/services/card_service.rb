@@ -23,13 +23,13 @@ class CardService
   MIN_NUM = 1
   MAX_NUM = 13
 
-  def self.result(cards)
+  def self.result(card)
 
-    card_array = cards.split(' ')
+    card_array = card.split(' ')
     # 半角スペースで区切って、カードを配列に入れる
-    suit_array = card_array.map { |card| card[0] }
+    suit_array = card_array.map { |one_card| one_card[0] }
     # スートだけの配列を作る
-    num_array = card_array.map { |card| card[1..2].to_i }
+    num_array = card_array.map { |one_card| one_card[1..2].to_i }
     # 数字だけの配列を作る
 
     # 以下、スートを比較するため、0番目のスートを5回繰り返した配列を変数に定義
@@ -112,10 +112,6 @@ class CardService
     # 入ってきたhandにそれぞれスコアリングをする
     best_card = score.key(scores.max)
     # maxを叩き出したhandをbest_cardとする
-    best_list = []
-    hands.each_with_index { |hand, i| best_list << i if hand == best_card }
-    # 役名同士を照らし合わせて何番目のhandがbestかを判定し、配列に入れる
-
-    best_list
+    best_card
   end
 end

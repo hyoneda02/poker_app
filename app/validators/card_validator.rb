@@ -1,13 +1,11 @@
 class CardValidator
-
   CARD_NUMBER = 5
   # 手札の枚数を定義する
   CHECK_SUIT_AND_NUMBER = /^[S|D|H|C](1[0-3]|[1-9])$/
   # トランプのカードパターンを定義する
 
-  def self.check_validate(cards)
-
-    card_array = cards.split(' ')
+  def self.check_validate(card)
+    card_array = card.split()
     check_error = []
 
     # ①カードの枚数と1つの半角スペースを含むかチェック
@@ -16,8 +14,8 @@ class CardValidator
     end
 
     # ②指定の文字で構成されているかチェック
-    card_array.each_with_index do |card, i|
-      check_error << "#{i + 1}番目のカード指定文字が不正です(#{card})" if !card.match(CHECK_SUIT_AND_NUMBER)
+    card_array.each_with_index do |one_card, i|
+      check_error << "#{i + 1}番目のカード指定文字が不正です(#{one_card})" if !one_card.match(CHECK_SUIT_AND_NUMBER)
       # 不正のある文字を指摘する
     end
       check_error << "半角英字大文字のスート(S,H,D,C)と数字(1〜13)の組み合わせでカードを指定してください。" if check_error.present?

@@ -5,15 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f05c096-5463-4d3a-bcfd-e589922a0524" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/sencha" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/v1/poker_api.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/v1/poker_api.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/cards_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/cards_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/channels/application_cable/channel.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/channels/application_cable/connection.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/jobs/application_job.rb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/mailers/application_mailer.rb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/card_service.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/card_service.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/validators/card_validator.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/validators/card_validator.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/views/cards/show.html.erb" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/cards/show.html.erb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sencha" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -225,7 +225,8 @@
       <workItem from="1611551177489" duration="39889000" />
       <workItem from="1611737962863" duration="2151000" />
       <workItem from="1611741841541" duration="148000" />
-      <workItem from="1611741995924" duration="445000" />
+      <workItem from="1611741995924" duration="8390000" />
+      <workItem from="1611808104104" duration="8787000" />
     </task>
     <servers />
   </component>
