@@ -20,8 +20,8 @@ module V1
           if card_valid.present?
             # エラーメッセージがある場合
             error_hash = {
-              'card' => card,
-              'msg' => card_valid
+              :card => card,
+              :msg => card_valid
             }
             error.push(error_hash)
           else
@@ -30,8 +30,8 @@ module V1
             hand_list << card_hand
             # best判定のために配列に詰める
             result_hash = {
-              'card' => card,
-              'hand' => card_hand
+              :card => card,
+              :hand => card_hand
             }
             result.push(result_hash)
           end
@@ -39,17 +39,10 @@ module V1
 
         best_hand = CardService.best_card_judge(hand_list)
         # ベスト判定ロジックを呼び出す
+        result.each { |result_hash| result_hash[:best] = best_hand.eql?(result_hash[:hand]) }
+        # ベストと判定されたハンドと任意のハンドを照らし合わせる
 
-        result.each do |result_hash|
-          if best_hand == result_hash['hand']
-            # ベストと判定されたハンドと任意のハンドを照らし合わせる
-            result_hash.store('best', true)
-          else
-            result_hash.store('best', false)
-          end
-        end
-
-        response[:result] = result
+        response[:result] = result.sort_by { |result_hash| result_hash[:best] ? 0 : 1 }
         response[:error] = error
 
         response

@@ -92,7 +92,7 @@ class CardService
   end
 
   # @params [Array] hands 役名の配列
-  # @return [Array] 受け取った役の中で、一番強い役の番号（何番目のcardか）
+  # @return [String] 受け取った役の中で、一番強い役名
 
   def self.best_card_judge(hands)
 
